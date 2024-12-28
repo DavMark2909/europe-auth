@@ -40,6 +40,7 @@ public class UserService implements UserDetailsService {
         user.setEmail(dto.email());
         user.setPassword(passwordEncoder.encode(dto.password()));
         user.setSurname(dto.surname());
+        user.setUsername(dto.username());
         Set<RoleEntity> roles = new HashSet<>();
         for (String role : dto.roles()) {
             RoleEntity roles1 = roleRepository.findByName(role).orElseGet(() -> {
